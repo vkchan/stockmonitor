@@ -1,4 +1,6 @@
-scipy
-numpy
+#scipy
+#numpy
 pandas
 bokeh
+quandl
+requests
