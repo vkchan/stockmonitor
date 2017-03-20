@@ -11,6 +11,7 @@ from bokeh.resources import INLINE
 from bokeh.util.browser import view
 from bokeh.util.string import encode_utf8
 from math import pi
+import os
 
 app = Flask(__name__)
 app.vars = {}
@@ -72,6 +73,5 @@ def plot():
         return render_template('error.html')
 
 if __name__ == '__main__':
-    with open('quandl_api.key') as f:
-        quandl.ApiConfig.api_key = f.read().strip()
+    quandl.ApiConfig.api_key = os.environ['QUANDL_API_KEY']
     app.run(host='0.0.0.0')
