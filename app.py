@@ -74,5 +74,5 @@ def plot():
         return render_template('error.html')
 
 if __name__ == '__main__':
-    quandl.ApiConfig.api_key = os.environ['QUANDL_API_KEY']
+    quandl.ApiConfig.api_key = os.environ.get('QUANDL_API_KEY', None)
     app.run(host='0.0.0.0')
