@@ -19,6 +19,7 @@ app.vars = {}
 @app.route('/')
 def main():
 #    app.vars['quotes_df'] = quandl.get_table("WIKI/PRICES")
+    print ('key={}'.format(os.environ['QUANDL_API_KEY']))
     return redirect('/index')
 
 @app.route('/index',methods=['GET','POST'])
