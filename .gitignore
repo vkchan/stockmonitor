@@ -2,3 +2,4 @@
 /app_advanced.py
 /*.bak
 /.ipynb_checkpoints
+/quandl_api.key

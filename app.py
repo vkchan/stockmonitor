@@ -14,7 +14,6 @@ from math import pi
 
 app = Flask(__name__)
 app.vars = {}
-quandl.ApiConfig.api_key = '1S32QjwvdYzFm5UmBwM8'
 
 @app.route('/')
 def main():
@@ -73,4 +72,6 @@ def plot():
         return render_template('error.html')
 
 if __name__ == '__main__':
+    with open('quandl_api.key') as f:
+        quandl.ApiConfig.api_key = f.read()
     app.run(host='0.0.0.0')
