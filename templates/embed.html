@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv='content-type' content='text/html; charset=utf-8' />
+    <link rel="shortcut icon" href="">
+    <title>Stock Price History</title>
+
+    {{ js_resources|indent(4)|safe }}
+
+    {{ css_resources|indent(4)|safe }}
+
+    {{ plot_script|indent(4)|safe }}
+
+  </head>
+  <body>
+    {{ plot_div|indent(4)|safe }}
+    <br>
+    <a href='/index'>Back to Home</a>
+  </body>
+</html>
