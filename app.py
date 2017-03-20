@@ -19,7 +19,6 @@ app.vars = {}
 @app.route('/')
 def main():
 #    app.vars['quotes_df'] = quandl.get_table("WIKI/PRICES")
-    print ('key={}'.format(os.environ['QUANDL_API_KEY']))
     return redirect('/index')
 
 @app.route('/index',methods=['GET','POST'])
@@ -42,6 +41,8 @@ def plot():
         # Download data from Quandl
         end_date = datetime.datetime.now()
         start_date = end_date - relativedelta(years=5)
+        quandl.ApiConfig.api_key = os.environ.get('QUANDL_API_KEY', None)
+        print ('key={}'.format(os.environ['QUANDL_API_KEY']))
         df = quandl.Datatable('WIKI/PRICES').data(params={'ticker': app.vars['ticker'], 'date': {'gte': start_date}}).to_pandas()
         # select the tools we want
         TOOLS = 'pan,crosshair,wheel_zoom,box_zoom,reset,save'
@@ -74,5 +75,4 @@ def plot():
         return render_template('error.html')
 
 if __name__ == '__main__':
-    quandl.ApiConfig.api_key = os.environ.get('QUANDL_API_KEY', None)
     app.run(host='0.0.0.0')
