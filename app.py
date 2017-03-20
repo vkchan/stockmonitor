@@ -42,7 +42,7 @@ def plot():
         end_date = datetime.datetime.now()
         start_date = end_date - relativedelta(years=5)
         quandl.ApiConfig.api_key = os.environ.get('QUANDL_API_KEY', None)
-        print ('key={}'.format(os.environ['QUANDL_API_KEY']))
+        #print ('key={}'.format(os.environ['QUANDL_API_KEY']))
         df = quandl.Datatable('WIKI/PRICES').data(params={'ticker': app.vars['ticker'], 'date': {'gte': start_date}}).to_pandas()
         # select the tools we want
         TOOLS = 'pan,crosshair,wheel_zoom,box_zoom,reset,save'
