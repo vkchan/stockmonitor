@@ -73,5 +73,5 @@ def plot():
 
 if __name__ == '__main__':
     with open('quandl_api.key') as f:
-        quandl.ApiConfig.api_key = f.read()
+        quandl.ApiConfig.api_key = f.read().strip()
     app.run(host='0.0.0.0')
